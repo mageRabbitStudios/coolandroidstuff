@@ -21,6 +21,7 @@ class MaskedImageView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : ImageView(context, attrs, defStyleAttr), ValueAnimator.AnimatorUpdateListener {
 
+    // Can't be private it is accessed by animators
     var radius: Float = 0f
     lateinit var bounds: Rect
 
@@ -39,7 +40,7 @@ class MaskedImageView @JvmOverloads constructor(
 
     fun startCircleToRectangleAnim() {
 
-        //starting radius, would be good if converted from to dp to have similar results on different devices
+        // starting radius, would be good if converted from to dp to have similar results on different devices
         radius = 300f
         val cornerRadiusAnim =
             ObjectAnimator.ofFloat(
